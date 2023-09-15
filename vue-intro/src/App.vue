@@ -1,11 +1,13 @@
 <template>
-  <h2 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h2>
+<h2>{{ name }}</h2>
+<button v-on:mouseover="name = 'maral'">change name</button>
 
-  <h2 v-for="(fullname, index) in fullNames" :key="index">
-    {{ fullname.first }}
-    {{ fullname.surname }}
-    {{ fullname.age }}
-  </h2>
+<h2>{{count}}</h2>
+<button v-on:click="increment(5)">Increment</button>
+<button v-on:click="decrement(5)">Decrement</button>
+
+
+
 </template>
 
 <script>
@@ -13,13 +15,17 @@ export default {
   name: "App",
   data() {
     return {
-      names: ["ali", "maral", "lila"],
-      fullNames: [
-        { first: "ali", surname: "durul", age: 25 },
-        { first: "maral", surname: "durul", age: 26 },
-        { first: "lila", surname: "durul", age: -10 },
-      ],
+      name:'ali',
+      count:0
     };
+  },
+  methods: {
+   increment(num){
+    this.count += num
+   },
+   decrement(num){
+    this.count -= num
+   }
   },
 };
 </script>
