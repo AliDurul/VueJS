@@ -5,14 +5,14 @@
     </pre>
   </div>
 
-  <form @submit="submitForm">
+  <form @submit.prevent="submitForm">
     <div>
       <label for="name">Name</label>
-      <input type="text" id="name" v-model="formValues.name" />
+      <input type="text" id="name" v-model.trim.lazy="formValues.name" />
     </div>
     <div>
       <label for="profile">Profile</label>
-      <textarea id="profile" v-model="formValues.profileSummary" />
+      <textarea id="profile" v-model.lazy="formValues.profileSummary" />
     </div>
     <div>
       <label for="country">Country</label>
@@ -42,8 +42,14 @@
       <label for="remotework">Open to remote Work?</label>
     </div>
     <div>
-      <button>Submit</button>
+      <label for="age">Age</label>
+      <input @keyup.enter="submitForm" type="text" id="age" v-model.number="formValues.age" />
     </div>
+
+ <!--    <div>
+      <button>Submit</button>
+    </div> -->
+    
   </form>
 </template>
 
@@ -58,14 +64,14 @@ export default {
         country: "",
         jobLocation: [],
         remoteWork: "no",
+        age: null,
       },
     };
   },
   methods: {
-    submitForm(event){
-      event.preventDefault()
+    submitForm() {
       console.log(this.formValues);
-    }
+    },
   },
 };
 </script>
