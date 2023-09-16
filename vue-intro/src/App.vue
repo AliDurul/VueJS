@@ -1,56 +1,9 @@
 <template>
-  <div>
-    <pre>
-      {{ JSON.stringify(formValues, null, 2) }}
-    </pre>
-  </div>
-
-  <form @submit.prevent="submitForm">
-    <div>
-      <label for="name">Name</label>
-      <input type="text" id="name" v-model.trim.lazy="formValues.name" />
-    </div>
-    <div>
-      <label for="profile">Profile</label>
-      <textarea id="profile" v-model.lazy="formValues.profileSummary" />
-    </div>
-    <div>
-      <label for="country">Country</label>
-      <select v-model="formValues.country" id="country">
-        <option value="">select a country</option>
-        <option value="india">india</option>
-        <option value="turkey">turkey</option>
-        <option value="zambia">zambia</option>
-      </select>
-    </div>
-    <div>
-      <label for="joblocation">Job Location</label>
-      <select v-model="formValues.jobLocation" multiple id="joblocation">
-        <option value="india">india</option>
-        <option value="turkey">turkey</option>
-        <option value="zambia">zambia</option>
-      </select>
-    </div>
-    <div>
-      <input
-        type="checkbox"
-        id="remotework"
-        v-model="formValues.remoteWork"
-        false-value="no"
-        true-value="yes"
-      />
-      <label for="remotework">Open to remote Work?</label>
-    </div>
-    <div>
-      <label for="age">Age</label>
-      <input @keyup.enter="submitForm" type="text" id="age" v-model.number="formValues.age" />
-    </div>
-
- <!--    <div>
-      <button>Submit</button>
-    </div> -->
-    
-  </form>
+  <h2>{{ fullName }}</h2>
+  <button @click="items.push({id:4, title:'keyboard', price:55})">Add item</button>
+  <h2>
+    Totoal = {{ totalPrice }}
+  </h2>
 </template>
 
 <script>
@@ -58,20 +11,35 @@ export default {
   name: "App",
   data() {
     return {
-      formValues: {
-        name: "",
-        profileSummary: "",
-        country: "",
-        jobLocation: [],
-        remoteWork: "no",
-        age: null,
-      },
+      name: "maral",
+      surName: "durul",
+      items: [
+        {
+          id: 1,
+          title: "TV",
+          price: 100,
+        },
+        {
+          id: 2,
+          title: "Phone",
+          price: 200,
+        },
+        {
+          id: 3,
+          title: "Laptop",
+          price: 600,
+        },
+      ],
     };
   },
-  methods: {
-    submitForm() {
-      console.log(this.formValues);
+  methods: {},
+  computed: {
+    fullName() {
+      return `${this.name} ${this.surName}`;
     },
+    totalPrice(){
+      return this.items.reduce((total, curr) => (total = total +curr.price), 0)
+    }
   },
 };
 </script>
