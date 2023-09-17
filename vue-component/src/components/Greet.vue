@@ -10,4 +10,4 @@ export default {
   props: ["name", "heroName"],
 };
 </script>
-<style lang=""></style>
+<style scoped></style>
