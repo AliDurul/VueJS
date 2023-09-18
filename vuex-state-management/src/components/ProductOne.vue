@@ -2,18 +2,33 @@
   <div>
     <h2>productOne</h2>
     <ul>
-      <li v-for="product in products" :key="product">
+      <li v-for="product in saleProduts" :key="product">
         <span class="name">{{ product.name }}</span>
-        <span class="price">{{ product.price }}</span>
+        <span class="price"> ${{ product.price }}</span>
       </li>
     </ul>
+    <button @click="reducePrice">reduce Price </button>
   </div>
 </template>
 
 <script>
 export default {
   name: "ProductTwo",
-  props: ["products"],
+  computed:{
+    products(){
+        return this.$store.state.products
+    },
+    saleProduts(){
+      return this.$store.getters.saleProducts
+    }
+  },
+  methods:{
+    reducePrice(){
+      this.$store.state.products.forEach((product) => {
+        product.price -= 1
+      })
+    }
+  }
 };
 </script>
 

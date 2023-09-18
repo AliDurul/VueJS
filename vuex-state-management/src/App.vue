@@ -1,28 +1,21 @@
 <template>
-  
-<ProductOne :products="products"/>
-<ProductTwo :products="products"/>
+  <div>
+    <ProductOne />
+    <ProductTwo />
+  </div>
 </template>
 
 <script>
-
-import ProductOne from './components/ProductOne.vue'
-import ProductTwo from './components/ProductTwo.vue'
+import ProductOne from "./components/ProductOne.vue";
+import ProductTwo from "./components/ProductTwo.vue";
 export default {
   name: "App",
-  components:{
+  components: {
     ProductOne,
-    ProductTwo
+    ProductTwo,
   },
   data() {
-    return {
-      products:[
-        {name:'banana skin', price:20},
-        {name:'shiny star', price:30},
-        {name:'Green Sheels', price:40},
-        {name:'Red shells', price:50},
-      ]
-    }
+    return {};
   },
 };
 </script>

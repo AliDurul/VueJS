@@ -3,9 +3,9 @@
     <h2>product two</h2>
 
     <ul>
-      <li v-for="product in products" :key="product">
+      <li v-for="product in saleProducts" :key="product">
         <span class="name">{{ product.name }}</span>
-        <span class="price">{{ product.price }}</span>
+        <span class="price">${{ product.price }}</span>
       </li>
     </ul>
   </div>
@@ -14,7 +14,14 @@
 <script>
 export default {
   name: "ProductOne",
-  props: ["products"],
+  computed:{
+    products(){
+        return this.$store.state.products
+    },
+    saleProducts(){
+      return this.$store.getters.saleProducts
+    }
+  }
 };
 </script>
 
