@@ -1,21 +1,15 @@
 <template>
-
-
-  <Card>
-    <template v-slot:header>
-      <img src="https://picsum.photos/205" alt="" />
-    </template>
-    <template v-slot:footer><h2>card footer</h2></template>
-    <template v-slot:default>this is content</template>
-  </Card>
+  <div>
+    <ForM />
+  </div>
 </template>
 
 <script>
-import Card from "./components/Card.vue";
+import ForM from "@/components/ForM.vue";
 export default {
   name: "App",
   components: {
-    Card,
+    ForM,
   },
 
   data() {
@@ -24,7 +18,9 @@ export default {
     };
   },
 
-  methods: {},
+  methods: {
+    
+  },
 };
 </script>
 
