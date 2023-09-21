@@ -62,6 +62,9 @@
   <teleport to="#portal-root">
     <Portal />
   </teleport>
+
+  <EmitTest @customChange="LogChange"/>
+
 </template>
 
 <script>
@@ -77,6 +80,7 @@ import TabA from './components/TabA.vue'
 import TabB from './components/TabB.vue'
 import TabC from './components/TabC.vue'
 import Portal from './components/Portal.vue'
+import EmitTest from './components/EmitTest.vue'
 
 export default {
   name: 'App',
@@ -93,6 +97,7 @@ export default {
     TabB,
     TabC,
     Portal,
+    EmitTest
   },
   data() {
     return {
@@ -115,6 +120,9 @@ export default {
       userName: this.name,
     }
   },
+  LogChange(e){
+    console.log(e);
+  }
 }
 </script>
 
