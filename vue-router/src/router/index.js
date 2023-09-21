@@ -22,9 +22,18 @@ const routes = [
   },
   {
     path: '/students/:id',
-    name: 'studentInfo',
+    name: 'StudentInfoView',
     component: () => import( '../views/StudentInfoView.vue')
-  }
+  },
+  {
+    path: '/student',
+    redirect:'/students'
+  },
+  {
+    path: '/:cathAll(.*)',
+    name: 'NotFoundView',
+    component: () => import( '../views/NotFoundView.vue')
+  },
 ]
 
 const router = createRouter({

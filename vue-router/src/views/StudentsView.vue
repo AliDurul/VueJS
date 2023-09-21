@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: "StudentsView",
+  name: "studentsView",
   data() {
     return {
       students: [
