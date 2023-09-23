@@ -1,14 +1,16 @@
 <template>
   <!-- Binding Text -->
   <div>{{ greet }} {{ name }}</div>
-
+<hr>
   <!-- Binding HTML -->
   <div v-html="channel"></div>
   <div v-html="hack"></div>
+  <hr>
 
   <!-- Bidning Attributes -->
   <h2 :id="headingId">Heading</h2>
   <button :disabled="isDisabled">Bind</button>
+  <hr>
 
   <!-- Binding Classes -->
   <h2 class="underline">Underlined Text</h2>
@@ -29,6 +31,7 @@
   >
     Object Conditional Movie
   </h2>
+  <hr>
 
   <!-- Binding Inline Styles -->
   <h2
@@ -43,6 +46,7 @@
   <h2 :style="headerStyleObject">Style Object</h2>
   <div :style="[baseStyleObject, successStyleObject]">Success Style</div>
   <div :style="[baseStyleObject, dangerStyleObject]">Danger Style</div>
+  <hr>
 
   <!-- Conditional Rendering -->
   <h1 v-if="num === 0">The number is zero</h1>
@@ -55,6 +59,7 @@
     <h2>Vue 3</h2>
   </template>
   <h2 v-show="showElement">Using v-show</h2>
+  <hr>
 
   <!-- List Rendering -->
   <h2 v-for="(name, index) in names" :key="name">{{ index }} {{ name }}</h2>
@@ -75,6 +80,7 @@
   <template v-for="name in names" :key="name">
     <h2 v-if="name === 'Bruce'">{{ name }}</h2>
   </template>
+  <hr>
 
   <!-- Methods -->
   <h2>{{ 2 + 3 + 5 }}</h2>
@@ -83,6 +89,7 @@
   <h2>Add method - {{ add(5, 10, 15) }}</h2>
   <h2>Multiply method - {{ multiply(10) }}</h2>
   <h2>Multiply method - {{ multiply(baseValue) }}</h2>
+  <hr>
 
   <!-- Event Handling -->
   <h2>{{ name }}</h2>
@@ -98,6 +105,7 @@
     <button @click="increment(5)">Increment 5</button>
     <button @click="decrement(5)">Decrement 5</button>
   </div>
+  <hr>
 
   <!-- Form Handling -->
   <div>
@@ -204,11 +212,13 @@
       <button>Submit</button>
     </div>
   </form>
+  <hr>
 
   <!-- Bonus Directives -->
   <h2 v-once>{{ name }}</h2>
   <button @click="name = 'Batman'">Change name</button>
   <h2 v-pre>{{ name }}</h2>
+  <hr>
 
   <!-- Computed Properties -->
   <h2>Fullname - {{ firstName }} {{ lastName }}</h2>
@@ -231,14 +241,17 @@
     {{ item.title }} - {{ item.price }}
   </h2>
   <button @click="changeFullName">Change fullname</button>
+  <hr>
 
   <!-- Watchers -->
+
   <h2>Volume Tracker (0-20)</h2>
   <h3>Current Volume - {{ volume }}</h3>
   <div>
     <button @click="volume += 2">Increase</button>
     <button @click="volume -= 2">Decrease</button>
   </div>
+
   <input type="text" v-model="movie" />
   <input type="text" v-model="movieInfo.title" />
   <input type="text" v-model="movieInfo.actor" />
