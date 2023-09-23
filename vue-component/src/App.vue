@@ -58,16 +58,24 @@
   <button @click="activeTab = 'TabC'">Tab C</button>
 
   <keep-alive>
-    <component :is="activeTab"/>
+    <component :is="activeTab" />
   </keep-alive>
   <hr />
 
   <!-- Teleport Component -->
-  <teleport to="#portal-root">
+  <!-- <teleport to="#portal-root">
     <Portal />
-  </teleport>
+  </teleport> -->
 
   <EmitTest @customChange="LogChange" />
+
+  <p ref="myElement" v-for="item in items" :key="item.id">
+    {{ item }}
+  </p>
+  <input type="text" ref="myInput" />
+  <button @click="console.log(this.$refs.myInput.value)">
+  get value with ref
+  </button>
 </template>
 
 <script>
@@ -102,8 +110,13 @@ export default {
     Portal,
     EmitTest,
   },
+  mounted() {
+    this.$refs.myElement[0].style.backgroundColor = "blue";
+    this.$refs.myElement[0].style.color = "white";
+  },
   data() {
     return {
+      items: [1, 2, 3, 4],
       name: "Vishwas",
       channel: "Codevolution",
       showPopup: false,
@@ -117,14 +130,14 @@ export default {
       this.showPopup = false;
       console.log("name", name);
     },
+    LogChange(e) {
+      console.log(e);
+    },
   },
   provide() {
     return {
       userName: this.name,
     };
-  },
-  LogChange(e) {
-    console.log(e);
   },
 };
 </script>
