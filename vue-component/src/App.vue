@@ -6,15 +6,17 @@
   <Greet name="Diana" hero-name="Wonder Woman" />
 
   <Article id="my-article" :likes="50" :isPublished="true" />
-
+  <hr />
   <!-- Provide/ Inject -->
   <h3>App component {{ name }}</h3>
   <ComponentC />
+  <hr />
 
   <!-- Events -->
   <button @click="showPopup = true">Show Popup</button>
   <Popup v-show="showPopup" @close="closePopup" />
   <Input v-model="username" />
+  <hr />
 
   <!-- Slots -->
   <Card></Card>
@@ -48,6 +50,7 @@
   <ChildStyles>
     <h4>ChildStyles component Text</h4>
   </ChildStyles>
+  <hr />
 
   <!-- Dynamic Components -->
   <button @click="activeTab = 'TabA'">Tab A</button>
@@ -55,35 +58,35 @@
   <button @click="activeTab = 'TabC'">Tab C</button>
 
   <keep-alive>
-    <component :is="activeTab"></component>
+    <component :is="activeTab"/>
   </keep-alive>
+  <hr />
 
   <!-- Teleport Component -->
   <teleport to="#portal-root">
     <Portal />
   </teleport>
 
-  <EmitTest @customChange="LogChange"/>
-
+  <EmitTest @customChange="LogChange" />
 </template>
 
 <script>
-import Article from './components/Article.vue'
-import Greet from './components/Greet.vue'
-import ComponentC from './components/ComponentC.vue'
-import Popup from './components/Popup.vue'
-import Input from './components/Input.vue'
-import Card from './components/Card.vue'
-import NameList from './components/NameList.vue'
-import ChildStyles from './components/ChildStyles.vue'
-import TabA from './components/TabA.vue'
-import TabB from './components/TabB.vue'
-import TabC from './components/TabC.vue'
-import Portal from './components/Portal.vue'
-import EmitTest from './components/EmitTest.vue'
+import Article from "./components/Article.vue";
+import Greet from "./components/Greet.vue";
+import ComponentC from "./components/ComponentC.vue";
+import Popup from "./components/Popup.vue";
+import Input from "./components/Input.vue";
+import Card from "./components/Card.vue";
+import NameList from "./components/NameList.vue";
+import ChildStyles from "./components/ChildStyles.vue";
+import TabA from "./components/TabA.vue";
+import TabB from "./components/TabB.vue";
+import TabC from "./components/TabC.vue";
+import Portal from "./components/Portal.vue";
+import EmitTest from "./components/EmitTest.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Greet,
     Article,
@@ -97,33 +100,33 @@ export default {
     TabB,
     TabC,
     Portal,
-    EmitTest
+    EmitTest,
   },
   data() {
     return {
-      name: 'Vishwas',
-      channel: 'Codevolution',
+      name: "Vishwas",
+      channel: "Codevolution",
       showPopup: false,
-      username: '',
-      friends: ['Chandler', 'Joey', 'Monica'],
-      activeTab: 'TabA',
-    }
+      username: "",
+      friends: ["Chandler", "Joey", "Monica"],
+      activeTab: "TabB",
+    };
   },
   methods: {
     closePopup(name) {
-      this.showPopup = false
-      console.log('name', name)
+      this.showPopup = false;
+      console.log("name", name);
     },
   },
   provide() {
     return {
       userName: this.name,
-    }
+    };
   },
-  LogChange(e){
+  LogChange(e) {
     console.log(e);
-  }
-}
+  },
+};
 </script>
 
 <style scoped>
