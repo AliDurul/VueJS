@@ -1,50 +1,56 @@
 <template>
-  <div>
+  <div class="formContent">
     <form @submit.prevent="createPost">
       <div>
-        <label for="userId">Post User ID</label>
-        <input type="text" id="userId" v-model="formData.userId" />
+        <label for="userId">Post User id</label>
+        <input
+          type="text"
+          name="userId"
+          id="userId"
+          v-model="formData.userId"
+        />
       </div>
       <div>
-        <label for="title">Post Title</label>
-        <input type="text" id="title" v-model="formData.title" />
+        <label for="title">Post title</label>
+        <input type="text" name="title" id="title" v-model="formData.title" />
       </div>
       <div>
-        <label for="body">Post Body</label>
-        <input type="text" id="body" v-model="formData.body" />
+        <label for="body">Post body</label>
+        <input type="text" name="body" id="body" v-model="formData.body" />
       </div>
-      <button>Create Post</button>
+      <button type="submit">Create post</button>
     </form>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
+
 export default {
-  name: 'CreatePost',
   data() {
     return {
       formData: {
-        userId: '',
-        title: '',
-        body: '',
+        userId: "",
+        title: "",
+        body: "",
       },
-    }
+    };
   },
   methods: {
-    createPost() {
-      axios
-        .post('https://jsonplaceholder.typicode.com/posts', this.formData)
-        .then((response) => {
-          console.log(response)
-        })
-        .catch((error) => {
-          console.log(error)
-        })
+    async createPost() {
+      try {
+       const {data} = await axios.post("https://jsonplaceholder.typicode.com/posts", this.formData);
+       console.log(data);
+      } catch (error) {
+        alert("soemthing went wrong");
+      }
     },
   },
-}
+};
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.formContent{
+margin-top: 1rem;
+}
 </style>

@@ -1,36 +1,24 @@
 <template>
-  <CreatePost />
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <TeamplatesRef />
+
   <PostList />
-
-  <!-- Lifecycle Hooks -->
-  <Parent />
-
-  <!-- Template Refs -->
-  <TemplateRef />
-
-  <!-- mixinx -->
-  <ClickCounter />
-  <HoverCounter />
+  <CreatePost />
+  
 </template>
 
 <script>
-import CreatePost from './components/CreatePost'
-import PostList from './components/PostList'
-import Parent from './components/Parent.vue'
-import TemplateRef from './components/TemplateRef.vue'
-import ClickCounter from './components/ClickCounter.vue'
-import HoverCounter from './components/HoverCounter.vue'
+import PostList from "@/components/PostList.vue";
+import CreatePost from "@/components/CreatePost.vue";
+import TeamplatesRef from "@/components/TeamplatesRef.vue";
+
 export default {
-  name: 'App',
   components: {
     PostList,
     CreatePost,
-    Parent,
-    TemplateRef,
-    ClickCounter,
-    HoverCounter,
+    TeamplatesRef
   },
-}
+};
 </script>
 
 <style>
