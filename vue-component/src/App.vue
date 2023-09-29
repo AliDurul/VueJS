@@ -63,9 +63,9 @@
   <hr />
 
   <!-- Teleport Component -->
-  <!-- <teleport to="#portal-root">
+  <teleport to="#portal-root">
     <Portal />
-  </teleport> -->
+  </teleport>
 
   <EmitTest @customChange="LogChange" />
 
