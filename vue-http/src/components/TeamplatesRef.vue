@@ -8,7 +8,7 @@
     export default {
         name:"TemplateRef",
         mounted () {
-            this.$.ref
+            this.$.refs.inputRef.focus()
         },
     }
 </script>

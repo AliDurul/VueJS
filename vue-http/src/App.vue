@@ -1,5 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
+
+
+  <LifeCyle />
   <TeamplatesRef />
 
   <PostList />
@@ -11,12 +14,14 @@
 import PostList from "@/components/PostList.vue";
 import CreatePost from "@/components/CreatePost.vue";
 import TeamplatesRef from "@/components/TeamplatesRef.vue";
+import LifeCyle from "@/components/LifeCyle.vue";
 
 export default {
   components: {
     PostList,
     CreatePost,
-    TeamplatesRef
+    TeamplatesRef,
+    LifeCyle
   },
 };
 </script>
