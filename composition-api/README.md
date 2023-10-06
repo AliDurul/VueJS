@@ -1,4 +1,4 @@
-# authentication-vuex-state
+# composition-api
 
 ## Project setup
 ```
