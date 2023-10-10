@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import { ref, computed,watch } from "vue";
 
 export default {
   name: "HomeView",
@@ -22,6 +22,16 @@ export default {
  const finded = computed(() => {
    return days.value.filter(day => day.includes(search.value))
  })
+watch(search, () => {
+  console.log('watch clisti');
+})
+
+
+
+
+
+
+
 
     return { days,search,finded };
   },
